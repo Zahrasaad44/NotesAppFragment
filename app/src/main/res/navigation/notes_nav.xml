@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/notes_nav"
+    app:startDestination="@id/fragmentNotes">
+
+    <fragment
+        android:id="@+id/fragmentNotes"
+        android:name="com.example.notesappfragment.FragmentNotes"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes" >
+        <action
+            android:id="@+id/action_fragmentNotes_to_newNoteFragment"
+            app:destination="@id/newNoteFragment" />
+        <action
+            android:id="@+id/action_fragmentNotes_to_editDeleteFragment"
+            app:destination="@id/editDeleteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newNoteFragment"
+        android:name="com.example.notesappfragment.newNoteFragment"
+        android:label="fragment_new_note"
+        tools:layout="@layout/fragment_new_note" >
+        <action
+            android:id="@+id/action_newNoteFragment_to_fragmentNotes"
+            app:destination="@id/fragmentNotes" />
+    </fragment>
+    <fragment
+        android:id="@+id/editDeleteFragment"
+        android:name="com.example.notesappfragment.EditDeleteFragment"
+        android:label="fragment_edit_delete"
+        tools:layout="@layout/fragment_edit_delete" >
+        <action
+            android:id="@+id/action_editDeleteFragment_to_fragmentNotes"
+            app:destination="@id/fragmentNotes" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <argument
+            android:name="text"
+            app:argType="string" />
+    </fragment>
+</navigation>
